@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name'); 
             $table->text('description');
+            $table->enum('status', ['available', 'reserved'])->default('available');
             $table->timestamps();
         });
     }
