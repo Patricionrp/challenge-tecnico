@@ -7,14 +7,14 @@ use App\Models\User;
 
 class SpacePolicy
 {
+    
     /**
-     * Create a new policy instance.
+     * Authorize the user to reserve a space
+     *
+     * @param User $user
+     * @param Space $space
+     * @return boolean
      */
-    public function __construct()
-    {
-        //
-    }
-
     public function reserve(User $user, Space $space) : bool
     {
         return $space->status === 'available';

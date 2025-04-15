@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\ReservationStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
@@ -22,4 +23,8 @@ class Reservation extends Model
     {
         return $this->belongsTo(Space::class);
     }
+
+    public $casts = [
+        'status' => ReservationStatusEnum::class,
+    ];
 }
