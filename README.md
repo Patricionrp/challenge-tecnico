@@ -1,13 +1,15 @@
 Challenge Técnico Laravel + React
 
 1. Clonar el repositorio
-
+    
+    Crear un archivo .env en el directorio backend y pegar el contenido de .env.example
 2. Construir y levantar los contenedores
 
     Correr docker-compose up --build -d desde el directorio raiz del proyecto (donde se encuentra el archivo docker-compose.yml)
 
 3. Acceder al contenedor del backend: docker exec -it challenge-tecnico-backend-1 /bin/bash
 
+    Ejecutar composer install
     Correr migraciones y seeds para Espacios y usuario Admin: php artisan migrate --seed
     Iniciar el servidor: php artisan serve --host=0.0.0.0 --port=8000
     Backend corriendo en http://localhost:8000
@@ -21,6 +23,7 @@ Challenge Técnico Laravel + React
     La aplicacion estara disponible en http://localhost:5173
 
 Para logearse como administrador: http://localhost:5173/admin
+
 
 Usuario administrador:
     Email: admin@neosistemas.com
