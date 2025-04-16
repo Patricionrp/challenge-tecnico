@@ -1,6 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { AuthContext } from '../../Context/AuthContext.jsx';
 
 export default function Login() {
+
+    const{setToken} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const[formData, setFormData] = useState({ 
         email: '',
@@ -21,8 +27,9 @@ export default function Login() {
         if (data.errors){
             setErrors(data.errors);
         }else{
-            console.log(data.token);
             localStorage.setItem('token', data.token);
+            setToken(data.token);
+            navigate('/'); // Redirect to home page after successful login
         }
     }
 
@@ -31,6 +38,7 @@ export default function Login() {
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
                 <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Iniciar Sesion</h1>
                 <form onSubmit={handleLogin} className="flex flex-col gap-4">
+                   
                     <div>
                         <input 
                             type="text" 
