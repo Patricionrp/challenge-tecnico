@@ -23,7 +23,7 @@ services:
     # restart: unless-stopped
     environment:
       MYSQL_DATABASE: challenge-tecnico
-      MYSQL_USER: patri
+      MYSQL_USER: challenge
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
