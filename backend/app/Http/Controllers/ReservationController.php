@@ -67,9 +67,6 @@ class ReservationController extends Controller
      */
     public function approve(Reservation $reservation)
     {
-        if ($reservation->status !== ReservationStatusEnum::RESERVED) {
-            return response()->json(['error' => 'Only reservations in the reserved state can be approved'], 422);
-        }
        
         $reservation->update([
             'status' => ReservationStatusEnum::APPROVED,
@@ -87,10 +84,7 @@ class ReservationController extends Controller
 
     public function reject(Reservation $reservation)
     {
-        if ($reservation->status !== ReservationStatusEnum::RESERVED) {
-            return response()->json(['error' => 'Only reservations in the reserved state can be rejected'], 422);
-        }
-
+        
         $reservation->update([
             'status' => ReservationStatusEnum::REJECTED,
         ]);
